@@ -1,0 +1,66 @@
+<h2 align ="center" style="background-color:aqua">Add Employee</h2>
+<table align="center">
+        <thead class="thead-dark">
+    <tr>
+        <td>Employee Id</td>
+        <input type="text" class="form-control" name="id" id="eid" [(ngModel)]="empId" #id1Control="ngModel" required  >
+        <span  class="alert alert-danger" role="alert" *ngIf="id1Control.touched && id1Control.invalid">ID should be filled</span>  
+    </tr>
+    <tr>
+            <td>Employee Name</td>
+            <input type="text" class="form-control" name="name" id="ename" [(ngModel)]="empName" #name1Control="ngModel" required  >
+            <span  class="alert alert-danger" role="alert" *ngIf="name1Control.touched && name1Control.invalid">Name should be filled</span>  
+    </tr>
+    <tr>
+            <td>Employee Salary</td>
+            <input type="text" class="form-control" name="salary" id="esalary" [(ngModel)]="empSalary" #salary1Control="ngModel" required  >
+                <span  class="alert alert-danger" role="alert" *ngIf="salary1Control.touched && salary1Control.invalid">Salary should be filled</span> 
+    </tr>
+    <tr>
+        <td><input type="button"  class ="btn btn-primary"value="ADD DATA"  (click)="addEmployee()"/></td>
+    </tr>
+    </thead>
+</table>
+<br>
+
+<table align="center">
+        <tr>
+            <td>Employee Id</td>
+            
+            <input type="text" class="form-control" name="id" id="eid" [(ngModel)]="empId2" #idControl="ngModel" required  >
+            <span  class="alert alert-danger" role="alert" *ngIf="idControl.touched && idControl.invalid">ID should be filled</span>  
+        </tr>
+        <tr>
+                <td>Employee Name</td>
+                <input type="text" class="form-control" name="name" id="ename" [(ngModel)]="empName2" #nameControl="ngModel" required  >
+                <span  class="alert alert-danger" role="alert" *ngIf="nameControl.touched && nameControl.invalid">Name should be filled</span>  
+        </tr>
+        <tr>
+                <td>Employee Salary</td>
+                <input type="text" class="form-control" name="salary" id="esalary" [(ngModel)]="empSalary2" #salaryControl="ngModel" required  >
+                <span  class="alert alert-danger" role="alert" *ngIf="salaryControl.touched && salaryControl.invalid">Salary should be filled</span> 
+        </tr>
+        <tr>
+            <td><input type="button"  class ="btn btn-primary" value="UPDATE DATA"  (click)="updateEmployee()"/></td>
+        </tr>
+    </table>
+  <br>  
+
+<h2 align ="center">Show All Employee</h2>
+
+<table border="2" align="center">
+    <thead class="thead-dark">
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+    </tr>
+    <tr *ngFor="let data of empall;let i=index">
+        <td>{{data.empId}}</td>
+        <td>{{data.empName }}</td>
+        <td>{{data.empSalary }}</td>
+        <td><input type="button" class ="btn btn-primary" value="DELETE" (click)="deleteEmployee(i)"/></td>
+        <td><input type="button" class ="btn btn-primary" value="UPDATE DATA"  (click)="updateEmployee2(i)"/></td>
+    </tr>
+</thead>
+</table>
